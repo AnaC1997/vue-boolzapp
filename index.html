@@ -48,10 +48,12 @@
                 </div>
 
                 <!--Messaggi-->
-                <div class="styleMessaggi"  v-for="(contatto, i) in contatti" :key="i">
-                    <img src="img/avatar_2.jpg" alt="avatar">
+                <div class="styleMessaggi" v-for="(contatto, i) in contatti" :key="i"
+                    @click="selezionaContatto(contatto)">
+                    <img :src="contatto.avatar" alt="avatar">
+
                     <span>
-                        <p class="p05 styleNameUtente">  {{ contatto.name }}</p>
+                        <p class="p05 styleNameUtente"> {{ contatto.name }}</p>
                         <p class="p05 colorUltMessaggio">Ultimo messaggio inviato</p>
                     </span>
                 </div>
@@ -60,13 +62,35 @@
 
             <!--COLONNA DESTRA-->
             <div class="elementoDestra">
-                <!--Header-->
-                <div class="headElementi">
 
+                <div v-if="contattoCorrente">
+                    <!--Header-->
+                    <div class="headElementi">
+                        <img :src="contattoCorrente.avatar" alt="avatar">
+                        <p>{{ contattoCorrente.name }}</p>
+                        <p class="colorUltMessaggio">Ultimo accesso oggi alle 12:00</p>
+                        <span class="styleIcone">
+                            <i class="fas fa-search p05"></i>
+                            <i class="fas fa-file p05"></i>
+                            <i class="fas fa-ellipsis-v p05"></i>
+                        </span>
+                    </div>
+                    <!--conversazione-->
+
+                    <div>
+                        <div class="chat" v-for="(message, i) in contattoCorrente.messages" :key="i">
+                            <p :class="{'sent': message.status === 'sent', 'received': message.status === 'received' }">{{ message.message }}</p>
+
+                           </div>
+                        </div>
+                    </div>
                 </div>
+             
+            
 
+
+               </div>
             </div>
-
         </div>
 
 

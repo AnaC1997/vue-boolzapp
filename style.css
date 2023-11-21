@@ -97,17 +97,18 @@ img {
 
 .fa-search{
     color:  #B1B1B1;
-    width: 20%;
 }
 
 /*messaggi*/
 
 .styleMessaggi{
     display: flex;
+    flex-wrap: nowrap;
     align-items: center;
     gap: 1rem;
     font-size: 0.9rem;
     overflow: auto;
+    cursor: pointer;
 }
 
 .styleNameUtente{
@@ -115,7 +116,7 @@ img {
 
 }
 .colorUltMessaggio{
-    color: #b4cfe9;
+    color: #cadae9;
 }
 
 
@@ -123,19 +124,34 @@ img {
 /*COLONNA DESTRA*/
 .elementoDestra {
     width: 60%;
-    background-image: url(img/mine.jpg);
+    background-image: url(/mine.jpg);
     height: 100%;
+  
 
 }
+/*chat*/
 
-.sent {
+#styleChat {
+    width: 100%;
+  }
+  
+ .chat{
+   border-radius: 2rem;
+   padding: 0.5rem;
+   width: 100%;
+  }
+  
+  .sent {
     background-color: #D5F9BA;
-}
-
-.received {
+    text-align: end;
+   
+  }
+  
+  .received {
     background-color: #FFFFFF;
-}
-
+    text-align: justify;
+    
+  }
 
 /*Padding*/
 
