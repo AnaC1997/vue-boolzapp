@@ -1,0 +1,148 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/*GENERAL*/
+body {
+    font-family: sans-serif;
+    height: 100vh;
+    background: linear-gradient(to bottom, #009688 15%, #DADBD4 10%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    height: 90vh;
+    width: 80vw;
+    display: flex;
+
+}
+
+.headElementi {
+    background-color: #EAEAEA;
+    height: 70px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+
+}
+
+img {
+    border-radius: 50%;
+    max-width: 3rem;
+}
+
+
+/*COLONNA SINISTRA*/
+.elementoSinistra {
+    width: 40%;
+    background-color: #FFFFFF;
+    height: 100%;
+
+}
+
+.styleIcone {
+    color: #B1B1B1;
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+    width: 100%;
+
+}
+
+/*notifiche*/
+#opzioneNotifiche {
+    background-color: #8EDAFC;
+    height: 70px;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.fa-bell {
+    background-color: white;
+    color: #8EDAFC;
+    border-radius: 50%;
+}
+
+.font-size {
+    font-size: 0.7rem;
+
+}
+
+.linkStyle {
+    color: #6AA0B6;
+}
+
+/*cerca*/
+
+.styleCerca {
+    height: 50px;
+    background-color: #FAFAFA;
+    display: flex;
+    align-items: center;
+}
+
+.styleInput {
+    width: 80%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    color:  #B1B1B1;
+   
+}
+
+.fa-search{
+    color:  #B1B1B1;
+    width: 20%;
+}
+
+/*messaggi*/
+
+.styleMessaggi{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 0.9rem;
+    overflow: auto;
+}
+
+.styleNameUtente{
+    font-weight: 500;
+
+}
+.colorUltMessaggio{
+    color: #b4cfe9;
+}
+
+
+
+/*COLONNA DESTRA*/
+.elementoDestra {
+    width: 60%;
+    background-image: url(img/mine.jpg);
+    height: 100%;
+
+}
+
+.sent {
+    background-color: #D5F9BA;
+}
+
+.received {
+    background-color: #FFFFFF;
+}
+
+
+/*Padding*/
+
+.p05{
+    padding: 0.2rem;
+}
+.p1 {
+    padding: 1rem;
+}
+

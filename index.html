@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Boolzapp</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <div class="container">
+            <!--COLONNA SINISTRA-->
+            <div class="elementoSinistra">
+                <!--Header-->
+                <div class="headElementi p1">
+                    <img src="img/avatar_io.jpg" alt="Avatar Utente">
+                    <h6 class="p1">Sofia</h6>
+
+                    <!--Icone Header-->
+                    <span class="styleIcone">
+                        <i class="fas fa-circle"></i>
+                        <i class="fas fa-comment"></i>
+                        <i class="fas fa-ellipsis-v"></i>
+                    </span>
+                </div>
+                <!--Opzione notifiche-->
+                <div id="opzioneNotifiche">
+                    <span><i class="fas fa-bell p1"></i></span>
+                    <span class="font-size">
+                        <p>Ricevi notifiche di nuovi messaggi</p>
+                        <a class="linkStyle" href="#">Attiva notifiche desktop</a>
+                    </span>
+                </div>
+
+                <!--Opzione di cercare-->
+                <div>
+                    <form class="styleCerca">
+                        <label><i class="fas fa-search p05"></i></label>
+                        <input class="styleInput" type="search" placeholder="Cerca o inizia una nuova chat">
+
+                    </form>
+                </div>
+
+                <!--Messaggi-->
+                <div class="styleMessaggi"  v-for="(contatto, i) in contatti" :key="i">
+                    <img src="img/avatar_2.jpg" alt="avatar">
+                    <span>
+                        <p class="p05 styleNameUtente">  {{ contatto.name }}</p>
+                        <p class="p05 colorUltMessaggio">Ultimo messaggio inviato</p>
+                    </span>
+                </div>
+
+            </div>
+
+            <!--COLONNA DESTRA-->
+            <div class="elementoDestra">
+                <!--Header-->
+                <div class="headElementi">
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+
+    </div>
+    <script src="main.js"></script>
+</body>
+
+</html>
