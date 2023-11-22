@@ -20,7 +20,7 @@
                 <!--Header-->
                 <div class="headElementi p1">
                     <img src="img/avatar_io.jpg" alt="Avatar Utente">
-                    <h6 class="p1">Sofia</h6>
+                    <h4 class="p1">Sofia</h4>
 
                     <!--Icone Header-->
                     <span class="styleIcone">
@@ -48,27 +48,33 @@
                 </div>
 
                 <!--Messaggi-->
-                <div class="styleMessaggi" v-for="(contatto, i) in contatti" :key="i"
-                    @click="selezionaContatto(contatto)">
-                    <img :src="contatto.avatar" alt="avatar">
+                <div class="overflowMessaggi">
+                    <div class="styleMessaggi p05" v-for="(contatto, i) in contatti" :key="i"
+                        @click="selezionaContatto(contatto)">
+                        <img :src="contatto.avatar" alt="avatar">
 
-                    <span>
-                        <p class="p05 styleNameUtente"> {{ contatto.name }}</p>
-                        <p class="p05 colorUltMessaggio">Ultimo messaggio inviato</p>
-                    </span>
+                        <span>
+                            <p class="p05 styleNameUtente"> {{ contatto.name }}</p>
+                            <span class="ultimoAccesso">
+                                <p>Ultimo messaggio inviato</p>
+                                <p>12:00</p>
+                            </span>
+                        </span>
+                    </div>
                 </div>
+
 
             </div>
 
             <!--COLONNA DESTRA-->
             <div class="elementoDestra">
-
-                <div v-if="contattoCorrente">
+                <!--V-IF se clicco sul contatto corrente mostrara l'informazioni della chat clicata-->
+                <div class="styleMessaggio" v-if="contattoCorrente">
                     <!--Header-->
                     <div class="headElementi">
                         <img :src="contattoCorrente.avatar" alt="avatar">
-                        <p>{{ contattoCorrente.name }}</p>
-                        <p class="colorUltMessaggio">Ultimo accesso oggi alle 12:00</p>
+                        <p> {{ contattoCorrente.name }}</p>
+                        <p class="ultimoAccesso p1">Ultimo accesso oggi alle 12:00</p>
                         <span class="styleIcone">
                             <i class="fas fa-search p05"></i>
                             <i class="fas fa-file p05"></i>
@@ -76,27 +82,59 @@
                         </span>
                     </div>
                     <!--conversazione-->
-
-                    <div>
-                        <div class="chat" v-for="(message, i) in contattoCorrente.messages" :key="i">
-                            <p :class="{'sent': message.status === 'sent', 'received': message.status === 'received' }">{{ message.message }}</p>
-
-                           </div>
+                    <div class="chat">
+                        <div v-for="(message, i) in contattoCorrente.messages" :key="i">
+                            <p class="m05"
+                                :class="{'sent': message.status === 'sent', 'received': message.status === 'received' }">
+                                {{ message.message }}</p>
                         </div>
                     </div>
+
+                      <!--scrita messaggio-->
+                      <div class="messaggio styleIcone">
+                        <i class="far fa-smile"></i>
+                        <input class="styleInput" type="search" placeholder="Scrivi in messaggio">
+                        <i class="fas fa-microphone"></i>
+                    </div>
                 </div>
-             
-            
+                <!--V-ELSE in caso contrario mostra la chat del indice [0]-->
+                <div class="styleMessaggio" v-else>
+                   
+                        <!--Header-->
+                        <div class="headElementi">
+                            <img :src="contatti[0].avatar" alt="avatar">
+                            <p> {{ contatti[0].name }}</p>
+                            <p class="ultimoAccesso p1">Ultimo accesso oggi alle 12:00</p>
+                            <span class="styleIcone">
+                                <i class="fas fa-search p05"></i>
+                                <i class="fas fa-file p05"></i>
+                                <i class="fas fa-ellipsis-v p05"></i>
+                            </span>
+                        </div>
+                        <!--conversazione-->
+                        <div class="p1 chat">
+                            <p class="m05" v-for="message in contatti[0].messages"
+                                :class="{'sent': message.status === 'sent', 'received': message.status === 'received' }">
+                                {{ message.message }} {{ message.date }}
+                            </p>
+                        </div>
 
+                        <!--scrita messaggio-->
+                        <div class="messaggio styleIcone">
+                            <i class="far fa-smile"></i>
+                            <input class="styleInput" type="search" placeholder="Scrivi in messaggio">
+                            <i class="fas fa-microphone"></i>
+                        </div>
+                
 
-               </div>
+                </div>
+
             </div>
+
+
         </div>
-
-
-
-
     </div>
+
     <script src="main.js"></script>
 </body>
 

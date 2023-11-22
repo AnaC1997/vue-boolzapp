@@ -18,12 +18,14 @@ body {
     height: 90vh;
     width: 80vw;
     display: flex;
+    justify-content: center;
+    align-items: center;
 
 }
 
 .headElementi {
     background-color: #EAEAEA;
-    height: 70px;
+    height: 60px;
     width: 100%;
     display: flex;
     align-items: center;
@@ -41,6 +43,7 @@ img {
     width: 40%;
     background-color: #FFFFFF;
     height: 100%;
+    
 
 }
 
@@ -49,6 +52,7 @@ img {
     display: flex;
     gap: 1rem;
     justify-content: flex-end;
+    padding-right: 1rem;
     width: 100%;
 
 }
@@ -84,10 +88,12 @@ img {
     background-color: #FAFAFA;
     display: flex;
     align-items: center;
+    justify-content: space-around;
 }
 
 .styleInput {
     width: 80%;
+    height: 2rem;
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -101,22 +107,31 @@ img {
 
 /*messaggi*/
 
+.overflowMessaggi{
+    max-width: 100%;
+    max-height: 65%;
+    overflow: scroll;
+
+}
 .styleMessaggi{
     display: flex;
-    flex-wrap: nowrap;
     align-items: center;
     gap: 1rem;
     font-size: 0.9rem;
-    overflow: auto;
     cursor: pointer;
+  
 }
 
 .styleNameUtente{
     font-weight: 500;
 
 }
-.colorUltMessaggio{
-    color: #cadae9;
+.ultimoAccesso{
+    color: #B1B1B1;
+    width: 100%;  
+    display: flex;
+    gap: 10rem;
+   
 }
 
 
@@ -126,32 +141,53 @@ img {
     width: 60%;
     background-image: url(/mine.jpg);
     height: 100%;
-  
 
 }
-/*chat*/
 
-#styleChat {
+.styleMessaggio{
+    display: flex;
+    flex-direction: column;
     width: 100%;
+    height: 100%;
+    
+   
+}
+
+
+/*conversazione*/
+
+.chat{
+    width: 100%;
+    height: 90%;
+    
   }
   
- .chat{
-   border-radius: 2rem;
-   padding: 0.5rem;
-   width: 100%;
-  }
-  
+
   .sent {
     background-color: #D5F9BA;
     text-align: end;
-   
   }
   
   .received {
     background-color: #FFFFFF;
     text-align: justify;
+     
     
   }
+
+/*scrita messaggio*/
+.messaggio{
+    width: 100%;
+    height: 10%;
+    background-color: #F3EEEA;
+    display: flex;
+    align-items: center;
+    justify-content: space-around
+
+    
+
+}
+
 
 /*Padding*/
 
@@ -162,3 +198,6 @@ img {
     padding: 1rem;
 }
 
+.m05{
+    margin: 0.5rem;
+}
