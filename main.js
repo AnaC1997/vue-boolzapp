@@ -3,7 +3,12 @@ const { createApp } = Vue;
 createApp({
     data() {
         return {
-
+            contattoCorrente: null,
+            sendUtente: " ",
+            enviaMessaggio: false,
+            receivedInterlocutior: "Ok",
+            intervalId: null,
+            contatore: 0,
             contatti: [
                 {
                     name: 'Michele',
@@ -204,7 +209,7 @@ createApp({
                             status: 'received'
                         }
                     ],
-                },{
+                }, {
                     name: 'Davide',
                     avatar: './img/avatar_8.jpg',
                     visible: true,
@@ -228,10 +233,6 @@ createApp({
                 }
 
             ],
-            contattoCorrente: null,
-           
-
-
         };
 
     },
@@ -239,11 +240,47 @@ createApp({
         selezionaContatto(contatto) {
             this.contattoCorrente = contatto;
         },
+        inviaMessaggio() {
+            //verifica se il campo input non è vuoto
+            if (this.sendUtente.trim() !== '') { //trim() viene utilizzato per rimuovere eventuali spazi vuoti all'inizio e alla fine della stringa
 
+                // Crea un nuovo oggetto messaggio con i dati dall'utente
+                const nuovoMessaggio = {
+                    message: this.sendUtente,
+                    status: 'sent',
+                    date: new Date().toLocaleString(),
+
+                };
+
+                // Aggiunge il nuovo messaggio all'array del contatto corrente
+                this.contattoCorrente.messages.push(nuovoMessaggio);
+
+                this.sendUtente = " ";
+
+                // Timer per simulare la ricezione della risposta "OK"
+                setTimeout(() => {
+                    this.riceveMessaggio();
+                }, 1000);
+
+            }
+
+        }, /*Se sendUtente invia un messaggio*/
+        riceveMessaggio() {
+    
+            const rispostaMessaggio = {
+                message: 'Ok',
+                status: 'received',
+                date: new Date().toLocaleString(),
+            };
+    
+            this.contattoCorrente.messages.push(rispostaMessaggio);
+        }
+    
+    
 
     },
-    mounted() {
-        
 
-    }
+
+
+
 }).mount('#app')

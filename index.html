@@ -16,7 +16,7 @@
     <div id="app">
         <div class="container">
             <!--COLONNA SINISTRA-->
-            <div class="elementoSinistra">
+            <section class="elementoSinistra">
                 <!--Header-->
                 <div class="headElementi p1">
                     <img src="img/avatar_io.jpg" alt="Avatar Utente">
@@ -62,12 +62,10 @@
                         </span>
                     </div>
                 </div>
-
-
-            </div>
+            </section>
 
             <!--COLONNA DESTRA-->
-            <div class="elementoDestra">
+            <section class="elementoDestra">
                 <!--V-IF se clicco sul contatto corrente mostrara l'informazioni della chat clicata-->
                 <div class="styleMessaggio" v-if="contattoCorrente">
                     <!--Header-->
@@ -86,50 +84,49 @@
                         <div v-for="(message, i) in contattoCorrente.messages" :key="i">
                             <p class="m05"
                                 :class="{'sent': message.status === 'sent', 'received': message.status === 'received' }">
-                                {{ message.message }}</p>
+                                {{ message.message }}  {{ "  " }}{{ message.date}} </p>
                         </div>
                     </div>
 
-                      <!--scrita messaggio-->
-                      <div class="messaggio styleIcone">
+                    <!--scrita messaggio-->
+                    <div class="messaggio styleIcone">
                         <i class="far fa-smile"></i>
-                        <input class="styleInput" type="search" placeholder="Scrivi in messaggio">
+                        <input class="styleInput" type="text" placeholder="Scrivi in messaggio" v-model="sendUtente" @keyup.enter="inviaMessaggio">
+                        <i @click="inviaMessaggio" class="far fa-paper-plane"></i>
                         <i class="fas fa-microphone"></i>
                     </div>
                 </div>
                 <!--V-ELSE in caso contrario mostra la chat del indice [0]-->
                 <div class="styleMessaggio" v-else>
-                   
-                        <!--Header-->
-                        <div class="headElementi">
-                            <img :src="contatti[0].avatar" alt="avatar">
-                            <p> {{ contatti[0].name }}</p>
-                            <p class="ultimoAccesso p1">Ultimo accesso oggi alle 12:00</p>
-                            <span class="styleIcone">
-                                <i class="fas fa-search p05"></i>
-                                <i class="fas fa-file p05"></i>
-                                <i class="fas fa-ellipsis-v p05"></i>
-                            </span>
-                        </div>
-                        <!--conversazione-->
-                        <div class="p1 chat">
-                            <p class="m05" v-for="message in contatti[0].messages"
-                                :class="{'sent': message.status === 'sent', 'received': message.status === 'received' }">
-                                {{ message.message }} {{ message.date }}
-                            </p>
-                        </div>
 
-                        <!--scrita messaggio-->
-                        <div class="messaggio styleIcone">
-                            <i class="far fa-smile"></i>
-                            <input class="styleInput" type="search" placeholder="Scrivi in messaggio">
-                            <i class="fas fa-microphone"></i>
-                        </div>
-                
+                    <!--Header-->
+                    <div class="headElementi">
+                        <img :src="contatti[0].avatar" alt="avatar">
+                        <p> {{ contatti[0].name }}</p>
+                        <p class="ultimoAccesso p1">Ultimo accesso oggi alle 12:00</p>
+                        <span class="styleIcone">
+                            <i class="fas fa-search p05"></i>
+                            <i class="fas fa-file p05"></i>
+                            <i class="fas fa-ellipsis-v p05"></i>
+                        </span>
+                    </div>
+                    <!--conversazione-->
+                    <div class="p1 chat">
+                        <p class="m05" v-for="message in contatti[0].messages"
+                            :class="{'sent': message.status === 'sent', 'received': message.status === 'received' }">
+                            {{ message.message }} {{ message.date }}
+                        </p>
+                    </div>
 
+                    <!--scrita messaggio-->
+                    <div class="messaggio styleIcone">
+                        <i class="far fa-smile"></i>
+                        <input class="styleInput" type="text" placeholder="Scrivi in messaggio" v-model="sendUtente" @keyup.enter="inviaMessaggio">
+                        <i @click="inviaMessaggio" class="far fa-paper-plane"></i>
+                        <i class="fas fa-microphone"></i>
+                    </div>
                 </div>
-
-            </div>
+            </section>
 
 
         </div>
