@@ -161,16 +161,18 @@ img {
     height: 90%;
     
   }
-  
+
 
   .sent {
     background-color: #D5F9BA;
     text-align: end;
+
   }
-  
+
   .received {
     background-color: #FFFFFF;
     text-align: justify;
+  
      
     
   }

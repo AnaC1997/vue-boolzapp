@@ -42,14 +42,13 @@
                 <div>
                     <form class="styleCerca">
                         <label><i class="fas fa-search p05"></i></label>
-                        <input class="styleInput" type="search" placeholder="Cerca o inizia una nuova chat">
-
+                        <input class="styleInput" type="search" placeholder="Cerca o inizia una nuova chat" v-model="filtroInput">
                     </form>
                 </div>
 
                 <!--Messaggi-->
                 <div class="overflowMessaggi">
-                    <div class="styleMessaggi p05" v-for="(contatto, i) in contatti" :key="i"
+                    <div class="styleMessaggi p05" v-for="(contatto, i) in filtraContatti()" :key="i"
                         @click="selezionaContatto(contatto)">
                         <img :src="contatto.avatar" alt="avatar">
 
@@ -72,7 +71,7 @@
                     <div class="headElementi">
                         <img :src="contattoCorrente.avatar" alt="avatar">
                         <p> {{ contattoCorrente.name }}</p>
-                        <p class="ultimoAccesso p1">Ultimo accesso oggi alle 12:00</p>
+                        <p class="ultimoAccesso p1">Ultimo accesso oggi alle 12:00 </p>
                         <span class="styleIcone">
                             <i class="fas fa-search p05"></i>
                             <i class="fas fa-file p05"></i>
@@ -80,8 +79,8 @@
                         </span>
                     </div>
                     <!--conversazione-->
-                    <div class="chat">
-                        <div v-for="(message, i) in contattoCorrente.messages" :key="i">
+                    <div  class="chat">
+                        <div class="styleChat" v-for="(message, i) in contattoCorrente.messages" :key="i">
                             <p class="m05"
                                 :class="{'sent': message.status === 'sent', 'received': message.status === 'received' }">
                                 {{ message.message }}  {{ "  " }}{{ message.date}} </p>
