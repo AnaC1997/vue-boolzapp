@@ -233,7 +233,7 @@ createApp({
                 },
                 {
                     name: 'Marco',
-                    avatar: './img/avatar_8.jpg',
+                    avatar: './img/avatar_2.jpg',
                     visible: true,
                     messages: [
                         {
@@ -255,7 +255,7 @@ createApp({
                 },
                 {
                     name: 'Matteo',
-                    avatar: './img/avatar_8.jpg',
+                    avatar: './img/avatar_1.jpg',
                     visible: true,
                     messages: [
                         {
@@ -277,7 +277,7 @@ createApp({
                 },
                 {
                     name: 'Martina',
-                    avatar: './img/avatar_8.jpg',
+                    avatar: './img/avatar_6.jpg',
                     visible: true,
                     messages: [
                         {
@@ -340,16 +340,9 @@ createApp({
             };
 
             this.contattoCorrente.messages.push(rispostaMessaggio);
-        },// onsearch version
-        inputSearch() {
-            const input = document.querySelector('input[type="search"]');
-
-            input.onsearch = () => {
-                console.log(`The term searched for was ${input.value}`);
-            };
-
-
         },
+
+        //Ficarca dei nomi con il metodo FILTER
         filtraContatti() {
             return this.contatti.filter(contatto =>
                 contatto.name.toLowerCase().includes(this.filtroInput.toLowerCase())

@@ -159,19 +159,35 @@ img {
 .chat{
     width: 100%;
     height: 90%;
+    overflow: scroll;
     
   }
 
+.chat .sent{
+    margin: 1rem 1rem 0 15rem;
+   
+}
 
   .sent {
     background-color: #D5F9BA;
     text-align: end;
+    border-radius: 1rem;
+    padding: 0.5rem;
+   
+    
 
   }
+
+.chat .received{
+    margin: 1rem 9rem 0.5rem 1rem;
+   
+}
 
   .received {
     background-color: #FFFFFF;
     text-align: justify;
+    border-radius: 1rem;
+    padding: 0.5rem;
   
      
     
@@ -185,10 +201,8 @@ img {
     display: flex;
     align-items: center;
     justify-content: space-around
-
-    
-
 }
+
 
 
 /*Padding*/

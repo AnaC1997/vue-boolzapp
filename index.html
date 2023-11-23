@@ -42,7 +42,8 @@
                 <div>
                     <form class="styleCerca">
                         <label><i class="fas fa-search p05"></i></label>
-                        <input class="styleInput" type="search" placeholder="Cerca o inizia una nuova chat" v-model="filtroInput">
+                        <input class="styleInput" type="search" placeholder="Cerca o inizia una nuova chat"
+                            v-model="filtroInput">
                     </form>
                 </div>
 
@@ -67,7 +68,7 @@
             <section class="elementoDestra">
                 <!--V-IF se clicco sul contatto corrente mostrara l'informazioni della chat clicata-->
                 <div class="styleMessaggio" v-if="contattoCorrente">
-                    <!--Header-->
+                    <!--Header1-->
                     <div class="headElementi">
                         <img :src="contattoCorrente.avatar" alt="avatar">
                         <p> {{ contattoCorrente.name }}</p>
@@ -78,19 +79,20 @@
                             <i class="fas fa-ellipsis-v p05"></i>
                         </span>
                     </div>
-                    <!--conversazione-->
-                    <div  class="chat">
+                    <!--conversazione1-->
+                    <div class="chat">
                         <div class="styleChat" v-for="(message, i) in contattoCorrente.messages" :key="i">
                             <p class="m05"
                                 :class="{'sent': message.status === 'sent', 'received': message.status === 'received' }">
-                                {{ message.message }}  {{ "  " }}{{ message.date}} </p>
+                                {{ message.message }} {{ " " }}{{ message.date}} </p>
                         </div>
                     </div>
 
-                    <!--scrita messaggio-->
+                    <!--scrita messaggio1-->
                     <div class="messaggio styleIcone">
                         <i class="far fa-smile"></i>
-                        <input class="styleInput" type="text" placeholder="Scrivi in messaggio" v-model="sendUtente" @keyup.enter="inviaMessaggio">
+                        <input class="styleInput" type="text" placeholder="Scrivi in messaggio" v-model="sendUtente"
+                            @keyup.enter="inviaMessaggio">
                         <i @click="inviaMessaggio" class="far fa-paper-plane"></i>
                         <i class="fas fa-microphone"></i>
                     </div>
@@ -98,7 +100,7 @@
                 <!--V-ELSE in caso contrario mostra la chat del indice [0]-->
                 <div class="styleMessaggio" v-else>
 
-                    <!--Header-->
+                    <!--Header2-->
                     <div class="headElementi">
                         <img :src="contatti[0].avatar" alt="avatar">
                         <p> {{ contatti[0].name }}</p>
@@ -109,7 +111,7 @@
                             <i class="fas fa-ellipsis-v p05"></i>
                         </span>
                     </div>
-                    <!--conversazione-->
+                    <!--conversazione2-->
                     <div class="p1 chat">
                         <p class="m05" v-for="message in contatti[0].messages"
                             :class="{'sent': message.status === 'sent', 'received': message.status === 'received' }">
@@ -117,16 +119,17 @@
                         </p>
                     </div>
 
-                    <!--scrita messaggio-->
+                    <!--scrita messaggio2-->
                     <div class="messaggio styleIcone">
                         <i class="far fa-smile"></i>
-                        <input class="styleInput" type="text" placeholder="Scrivi in messaggio" v-model="sendUtente" @keyup.enter="inviaMessaggio">
+                        <input class="styleInput" type="text" placeholder="Scrivi in messaggio" v-model="sendUtente"
+                            @keyup.enter="inviaMessaggio">
                         <i @click="inviaMessaggio" class="far fa-paper-plane"></i>
                         <i class="fas fa-microphone"></i>
                     </div>
                 </div>
             </section>
-
+        
 
         </div>
     </div>
