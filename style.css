@@ -12,15 +12,13 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+   
 }
 
 .container {
     height: 90vh;
     width: 80vw;
     display: flex;
-    justify-content: center;
-    align-items: center;
-
 }
 
 .headElementi {
@@ -29,12 +27,14 @@ body {
     width: 100%;
     display: flex;
     align-items: center;
+    
 
 }
 
 img {
     border-radius: 50%;
     max-width: 3rem;
+    margin: 0.5rem;
 }
 
 
@@ -42,8 +42,7 @@ img {
 .elementoSinistra {
     width: 40%;
     background-color: #FFFFFF;
-    height: 100%;
-    
+
 
 }
 
@@ -64,12 +63,18 @@ img {
     display: flex;
     gap: 1rem;
     align-items: center;
+    padding: 1rem;
 }
 
 .fa-bell {
     background-color: white;
     color: #8EDAFC;
     border-radius: 50%;
+     padding: 1rem;
+}
+
+.p1{
+    padding: 1rem;
 }
 
 .font-size {
@@ -119,7 +124,12 @@ img {
     gap: 1rem;
     font-size: 0.9rem;
     cursor: pointer;
-  
+    margin: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.styleMessaggi:hover{
+    background-color: #E9EBEB;
 }
 
 .styleNameUtente{
@@ -204,16 +214,3 @@ img {
 }
 
 
-
-/*Padding*/
-
-.p05{
-    padding: 0.2rem;
-}
-.p1 {
-    padding: 1rem;
-}
-
-.m05{
-    margin: 0.5rem;
-}
